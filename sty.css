@@ -1,0 +1,292 @@
+:root {
+  --time: 1500ms;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+*:focus {
+  outline: none;
+}
+
+*::-webkit-input-placeholder {
+  color: #222;
+}
+
+*::-moz-placeholder {
+  /* Firefox 19+ */
+  color: #222;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  background: #e4e4e4;
+  font-family: montserrat;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: #2c3e50;
+  overflow: hidden;
+}
+
+.app {
+  width: 960px;
+  height: 550px;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  background: #fff;
+  -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  margin: 20px;
+  background-image: radial-gradient(73% 147%, #eadfdf 59%, #ece2df 100%), radial-gradient(91% 146%, rgba(255, 255, 255, 0.5) 47%, rgba(0, 0, 0, 0.5) 100%);
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9);
+}
+
+.app::before, .app::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 400px;
+  height: 800px;
+  background-image: radial-gradient(circle 248px at center, #16d9e3 0%, #30c7ec 47%, #46aef7 100%);
+  opacity: 0.6;
+  -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  -webkit-animation: slide-in var(--time) cubic-bezier(0.19, 1, 0.22, 1) both;
+          animation: slide-in var(--time) cubic-bezier(0.19, 1, 0.22, 1) both;
+}
+
+.app::before {
+  z-index: 2;
+  left: -100px;
+  top: -50px;
+}
+
+.app::after {
+  z-index: 0;
+  left: -200px;
+  top: -150px;
+  -webkit-animation-delay: 200ms;
+          animation-delay: 200ms;
+}
+
+@-webkit-keyframes slide-in {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
+  }
+  100% {
+    opacity: 0.6;
+    -webkit-transform: translateX(0%) rotate(-15deg);
+            transform: translateX(0%) rotate(-15deg);
+  }
+}
+
+@keyframes slide-in {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
+  }
+  100% {
+    opacity: 0.6;
+    -webkit-transform: translateX(0%) rotate(-15deg);
+            transform: translateX(0%) rotate(-15deg);
+  }
+}
+
+form.form {
+  position: relative;
+  width: 600px;
+  height: 100%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 100px 1fr;
+      grid-template-rows: 100px 1fr;
+  padding: 10px 20px;
+  z-index: 10;
+  -webkit-animation: slide-up var(--time) cubic-bezier(0.19, 1, 0.22, 1) both;
+          animation: slide-up var(--time) cubic-bezier(0.19, 1, 0.22, 1) both;
+  opacity: 0;
+  -webkit-animation-delay: 200ms;
+          animation-delay: 200ms;
+}
+
+form.form h1.app-info {
+  font-weight: 800;
+  font-size: 2rem;
+  margin: 25px 0;
+  color: rgba(0, 0, 0, 0.8);
+  -webkit-animation: slide-up var(--time) cubic-bezier(0.19, 1, 0.22, 1) both;
+          animation: slide-up var(--time) cubic-bezier(0.19, 1, 0.22, 1) both;
+  -webkit-animation-delay: 400ms;
+          animation-delay: 400ms;
+}
+
+form.form .user_field {
+  padding-top: 30px;
+}
+
+form.form .user_field .row {
+  position: relative;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  margin-bottom: 40px;
+  color: rgba(0, 0, 0, 0.8);
+  -webkit-animation: slide-up var(--time) cubic-bezier(0.19, 1, 0.22, 1) both;
+          animation: slide-up var(--time) cubic-bezier(0.19, 1, 0.22, 1) both;
+  -webkit-animation-delay: calc(400ms + (200ms * (var(--index))));
+          animation-delay: calc(400ms + (200ms * (var(--index))));
+}
+
+form.form .user_field .row .textfield {
+  position: relative;
+}
+
+form.form .user_field .row .textfield input {
+  width: 240px;
+  background: none;
+  color: #000;
+  border: none;
+  border-bottom: 2px solid #222;
+  padding: 5px;
+  letter-spacing: 1px;
+}
+form.form .user_field .row .textfield input:not(:valid) {
+  border-bottom: 2px solid #cc2e2e;
+}
+
+form.form .user_field .row .textfield input:focus ~ .fieldinfo {
+  font-size: 12px;
+  top: -12%;
+  color: orange;
+}
+
+form.form .user_field .row .textfield input.hasvalue ~ .fieldinfo {
+  font-size: 12px;
+  top: -12%;
+  color: orange;
+}
+
+form.form .user_field .row .textfield .fieldinfo {
+  position: absolute;
+  left: 5px;
+  top: 48%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  pointer-events: none;
+  font-weight: 800;
+  font-size: 14px;
+  -webkit-transition: all 200ms ease;
+  transition: all 200ms ease;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+form.form .user_field .row._4 {
+  height: 60px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+form.form .user_field .row._4 .btn.submit {
+  height: 100%;
+  width: 180px;
+  border-radius: 40px;
+  background: orangered;
+  border: none;
+  color: #fff;
+  font-size: 18px;
+  cursor: pointer;
+  -webkit-box-shadow: 0 4px 10px rgba(46, 204, 113, 0.2);
+          box-shadow: 0 4px 10px rgba(46, 204, 113, 0.2);
+  margin: 0 50px;
+}
+
+form.form .user_field .row._3 {
+  height: 150px;
+}
+
+form.form .user_field .row._3 .textfield {
+  background: rgba(0, 0, 0, 0.1);
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  width: calc(200% - 18%);
+  height: 100%;
+}
+
+form.form .user_field .row._3 .textfield textarea {
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  position: absolute;
+  resize: none;
+  background: none;
+  color: #000;
+  border: none;
+  border-bottom: 2px solid #222;
+}
+
+@-webkit-keyframes slide-up {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(100%);
+            transform: translateY(100%);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%);
+  }
+}
+
+@keyframes slide-up {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(100%);
+            transform: translateY(100%);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%);
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  .app {
+    width: 600px;
+    height: 550px;
+    position: fixed;
+    left: 0;
+    top: 10%;
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%);
+    margin: 0 20px;
+  }
+}
